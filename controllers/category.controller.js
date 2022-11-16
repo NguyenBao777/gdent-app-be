@@ -1,12 +1,9 @@
 const categoryModel = require("../models/category.model");
 const fs = require("fs");
+const vercelCross = require("../config/crosshandler");
 //add new
 exports.addNew = async (req, res) => {
-	res.setHeader("Access-Control-Allow-Origin", "*");
-	res.setHeader("Access-Control-Allow-Credentials", "true");
-	res.setHeader("Access-Control-Max-Age", "1800");
-	res.setHeader("Access-Control-Allow-Headers", "content-type");
-	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
+	vercelCross;
 	const body = req.body;
 	const image = req.file.filename;
 	if (!image || !body) {
@@ -36,11 +33,7 @@ exports.addNew = async (req, res) => {
 };
 // get all
 exports.getAll = async (req, res) => {
-	res.setHeader("Access-Control-Allow-Origin", "*");
-	res.setHeader("Access-Control-Allow-Credentials", "true");
-	res.setHeader("Access-Control-Max-Age", "1800");
-	res.setHeader("Access-Control-Allow-Headers", "content-type");
-	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
+	vercelCross;
 	try {
 		const data = await categoryModel.tbl_category.findAll();
 
@@ -51,11 +44,7 @@ exports.getAll = async (req, res) => {
 };
 // getOne
 exports.getOne = async (req, res) => {
-	res.setHeader("Access-Control-Allow-Origin", "*");
-	res.setHeader("Access-Control-Allow-Credentials", "true");
-	res.setHeader("Access-Control-Max-Age", "1800");
-	res.setHeader("Access-Control-Allow-Headers", "content-type");
-	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
+	vercelCross;
 	const id = req.params.id;
 
 	try {
@@ -68,11 +57,7 @@ exports.getOne = async (req, res) => {
 };
 // update
 exports.update = async (req, res) => {
-	res.setHeader("Access-Control-Allow-Origin", "*");
-	res.setHeader("Access-Control-Allow-Credentials", "true");
-	res.setHeader("Access-Control-Max-Age", "1800");
-	res.setHeader("Access-Control-Allow-Headers", "content-type");
-	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
+	vercelCross;
 	const newImage = req?.file?.filename || null;
 	const id = req.body.category_id;
 
@@ -104,11 +89,7 @@ exports.update = async (req, res) => {
 };
 // delete
 exports.delete = async (req, res) => {
-	res.setHeader("Access-Control-Allow-Origin", "*");
-	res.setHeader("Access-Control-Allow-Credentials", "true");
-	res.setHeader("Access-Control-Max-Age", "1800");
-	res.setHeader("Access-Control-Allow-Headers", "content-type");
-	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
+	vercelCross;
 	const id = req.params.id;
 	const oldImage = req.params.filename;
 	try {

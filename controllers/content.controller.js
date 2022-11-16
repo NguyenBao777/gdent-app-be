@@ -1,11 +1,8 @@
 const contentModel = require("../models/content.model");
+const vercelCross = require("../config/crosshandler");
 // add new
 exports.addNew = async (req, res) => {
-	res.setHeader("Access-Control-Allow-Origin", "*");
-	res.setHeader("Access-Control-Allow-Credentials", "true");
-	res.setHeader("Access-Control-Max-Age", "1800");
-	res.setHeader("Access-Control-Allow-Headers", "content-type");
-	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
+	vercelCross;
 	const newContent = contentModel.tbl_content.build({
 		content_title: req.body.content_title,
 		content_desc: req.body.content_desc,
@@ -25,11 +22,7 @@ exports.addNew = async (req, res) => {
 };
 // get all
 exports.getAll = async (req, res) => {
-	res.setHeader("Access-Control-Allow-Origin", "*");
-	res.setHeader("Access-Control-Allow-Credentials", "true");
-	res.setHeader("Access-Control-Max-Age", "1800");
-	res.setHeader("Access-Control-Allow-Headers", "content-type");
-	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
+	vercelCross;
 	try {
 		const data = await contentModel.tbl_content.findAll();
 
@@ -52,11 +45,7 @@ exports.getOne = async (req, res) => {
 };
 // update
 exports.update = async (req, res) => {
-	res.setHeader("Access-Control-Allow-Origin", "*");
-	res.setHeader("Access-Control-Allow-Credentials", "true");
-	res.setHeader("Access-Control-Max-Age", "1800");
-	res.setHeader("Access-Control-Allow-Headers", "content-type");
-	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
+	vercelCross;
 	try {
 		const data = await contentModel.tbl_content.findByPk(req.body.content_id);
 		data.update({
@@ -73,11 +62,7 @@ exports.update = async (req, res) => {
 };
 // delete
 exports.delete = async (req, res) => {
-	res.setHeader("Access-Control-Allow-Origin", "*");
-	res.setHeader("Access-Control-Allow-Credentials", "true");
-	res.setHeader("Access-Control-Max-Age", "1800");
-	res.setHeader("Access-Control-Allow-Headers", "content-type");
-	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
+	vercelCross;
 	const id = req.params.id;
 	try {
 		const deleteData = await contentModel.tbl_content.findByPk(id);

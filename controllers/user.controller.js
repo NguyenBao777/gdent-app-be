@@ -2,13 +2,10 @@ const userModel = require("../models/user.model");
 const addressModel = require("../models/address.model");
 const fs = require("fs");
 const md5 = require("md5");
+const vercelCross = require("../config/crosshandler");
 // login
 exports.login = async (req, res) => {
-	res.setHeader("Access-Control-Allow-Origin", "*");
-	res.setHeader("Access-Control-Allow-Credentials", "true");
-	res.setHeader("Access-Control-Max-Age", "1800");
-	res.setHeader("Access-Control-Allow-Headers", "content-type");
-	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
+	vercelCross;
 	const username = req.params.user_username;
 	const password = md5(req.params.user_userpassword);
 
@@ -32,11 +29,7 @@ exports.login = async (req, res) => {
 };
 // register
 exports.addNew = async (req, res) => {
-	res.setHeader("Access-Control-Allow-Origin", "*");
-	res.setHeader("Access-Control-Allow-Credentials", "true");
-	res.setHeader("Access-Control-Max-Age", "1800");
-	res.setHeader("Access-Control-Allow-Headers", "content-type");
-	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
+	vercelCross;
 	const body = req.body;
 
 	if (!body) {
@@ -62,11 +55,7 @@ exports.addNew = async (req, res) => {
 };
 // update
 exports.update = async (req, res) => {
-	res.setHeader("Access-Control-Allow-Origin", "*");
-	res.setHeader("Access-Control-Allow-Credentials", "true");
-	res.setHeader("Access-Control-Max-Age", "1800");
-	res.setHeader("Access-Control-Allow-Headers", "content-type");
-	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
+	vercelCross;
 	const filename = req?.file?.filename || null;
 
 	try {
@@ -108,11 +97,7 @@ exports.update = async (req, res) => {
 };
 //check duplicate
 exports.checkDulicate = async (req, res) => {
-	res.setHeader("Access-Control-Allow-Origin", "*");
-	res.setHeader("Access-Control-Allow-Credentials", "true");
-	res.setHeader("Access-Control-Max-Age", "1800");
-	res.setHeader("Access-Control-Allow-Headers", "content-type");
-	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
+	vercelCross;
 	const username = req.params.username;
 
 	try {
