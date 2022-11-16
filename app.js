@@ -13,6 +13,13 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
 app.use("/public", express.static(path.join(__dirname, "./public")));
+// cros polycies
+app.use((req, res, next) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE");
+	res.setHeader("Access-Control-Allow-Methods", "Content-Type", "Authorization");
+	next();
+});
 // Routes middle
 const route = require("./routes/web");
 app.use("/", route);
