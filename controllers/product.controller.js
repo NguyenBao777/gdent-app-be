@@ -4,6 +4,11 @@ const op = Sequelize.Op;
 const fs = require("fs");
 //add new
 exports.addNew = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	const body = req.body;
 	console.log(body);
 	const image_1 = req.files[0].filename;
@@ -47,6 +52,11 @@ exports.addNew = async (req, res) => {
 };
 // get all
 exports.getAll = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	try {
 		const data = await productModel.tbl_product.findAll({ where: { product_status: 1 } });
 
@@ -57,6 +67,11 @@ exports.getAll = async (req, res) => {
 };
 // get limit
 exports.getLimit = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	try {
 		const data = await productModel.tbl_product.findAll({
 			where: { product_status: 1 },
@@ -71,6 +86,11 @@ exports.getLimit = async (req, res) => {
 };
 // get one
 exports.getOne = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	const id = req.params.id;
 	try {
 		const data = await productModel.tbl_product.findByPk(id);
@@ -82,6 +102,11 @@ exports.getOne = async (req, res) => {
 };
 // update
 exports.update = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	const files = req?.files;
 
 	try {
@@ -169,6 +194,11 @@ exports.update = async (req, res) => {
 };
 // delete
 exports.delete = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	const oldImages = req.body;
 	const id = req.params.id;
 
@@ -187,6 +217,11 @@ exports.delete = async (req, res) => {
 };
 // getByCategory
 exports.getByCategory = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	try {
 		const data = await productModel.tbl_product.findAll({
 			where: { category_id: req.params.id },
@@ -200,6 +235,11 @@ exports.getByCategory = async (req, res) => {
 };
 // search
 exports.search = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	const str = req.params.str;
 
 	try {
@@ -218,6 +258,11 @@ exports.search = async (req, res) => {
 };
 // getByAdmin
 exports.getAllAdmin = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	try {
 		const data = await productModel.tbl_product.findAll();
 

@@ -3,6 +3,11 @@ const fs = require("fs");
 
 // add new
 exports.addNew = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	const body = req.body;
 	const image = req.file.filename;
 	if (!image || !body) {
@@ -32,6 +37,11 @@ exports.addNew = async (req, res) => {
 };
 //get All
 exports.getAll = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	const limit = req.params.limit;
 	try {
 		if (limit > 0) {
@@ -52,6 +62,11 @@ exports.getAll = async (req, res) => {
 };
 //get one
 exports.getOne = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	const id = req.body.id;
 
 	try {
@@ -64,6 +79,11 @@ exports.getOne = async (req, res) => {
 };
 // update
 exports.update = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	const newImage = req?.file?.filename || null;
 	const id = req.body.brand_id;
 	console.log(id);
@@ -96,6 +116,11 @@ exports.update = async (req, res) => {
 };
 // delete
 exports.delete = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	const id = req.params.id;
 	const oldImage = req.params.filename;
 	try {

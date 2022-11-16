@@ -4,6 +4,11 @@ const quanhuyenModel = require("../models/quanhuyen.model");
 const addressModel = require("../models/address.model");
 // get thanh pho
 exports.getThanhpho = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	try {
 		const data = await tinhthanhphoModel.tbl_tinhthanhpho.findAll();
 
@@ -16,6 +21,11 @@ exports.getThanhpho = async (req, res) => {
 };
 // get thanh pho by id
 exports.getThanhphoById = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	try {
 		const data = await tinhthanhphoModel.tbl_tinhthanhpho.findByPk(req.params.id);
 
@@ -28,6 +38,11 @@ exports.getThanhphoById = async (req, res) => {
 };
 // get quan huyen
 exports.getQuanhuyen = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	const id = req.params.id;
 	try {
 		const data = await quanhuyenModel.tbl_quanhuyen.findAll({
@@ -45,6 +60,11 @@ exports.getQuanhuyen = async (req, res) => {
 };
 // get quan huyen by id
 exports.getQuanhuyenById = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	try {
 		const data = await quanhuyenModel.tbl_quanhuyen.findByPk(req.params.id);
 
@@ -57,6 +77,11 @@ exports.getQuanhuyenById = async (req, res) => {
 };
 // get thi tran
 exports.getThitran = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	const id = req.params.id;
 	try {
 		const data = await xaphuongthitranModel.tbl_xaphuongthitran.findAll({
@@ -74,6 +99,11 @@ exports.getThitran = async (req, res) => {
 };
 // get thi tran by id
 exports.getThitranById = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	try {
 		const data = await xaphuongthitranModel.tbl_xaphuongthitran.findByPk(req.params.id);
 
@@ -86,6 +116,11 @@ exports.getThitranById = async (req, res) => {
 };
 // get address
 exports.getAddress = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	console.log(req.params.id);
 	try {
 		const data = await addressModel.tbl_address.findAll({
@@ -102,6 +137,11 @@ exports.getAddress = async (req, res) => {
 };
 // delete address
 exports.delete = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	try {
 		const deleteData = await addressModel.tbl_address.destroy({ where: { id: req.params.id } });
 		return res.status(200).send({ success: true, message: "Delete successfuly!" });

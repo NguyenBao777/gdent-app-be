@@ -3,6 +3,11 @@ const adminModel = require("../models/admin.model");
 const fs = require("fs");
 // add new
 exports.addNew = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	const body = req.body;
 	const image = req.file.filename;
 
@@ -31,6 +36,11 @@ exports.addNew = async (req, res) => {
 };
 // Login
 exports.login = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	const username = req.params.username;
 	const password = md5(req.params.password);
 
@@ -50,6 +60,11 @@ exports.login = async (req, res) => {
 };
 // toggle on/off line
 exports.online = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	try {
 		const data = await adminModel.tbl_admin.findByPk(req.body.id);
 		data.update({
@@ -63,6 +78,11 @@ exports.online = async (req, res) => {
 };
 // check duplicate username
 exports.checkDulicate = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	const username = req.params.username;
 
 	try {
@@ -81,6 +101,11 @@ exports.checkDulicate = async (req, res) => {
 };
 // get all
 exports.getAll = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	try {
 		const data = await adminModel.tbl_admin.findAll();
 
@@ -93,6 +118,11 @@ exports.getAll = async (req, res) => {
 
 // get admin status
 exports.getByStatus = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	try {
 		const data = await adminModel.tbl_admin.findAll({
 			where: {
@@ -109,6 +139,11 @@ exports.getByStatus = async (req, res) => {
 
 // delete admin
 exports.delete = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	const id = req.params.id;
 	const oldImage = req.params.filename;
 	try {
@@ -124,6 +159,11 @@ exports.delete = async (req, res) => {
 
 //update
 exports.update = async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS");
 	try {
 		const data = await adminModel.tbl_admin.findByPk(req.body.admin_id);
 		if (req.body.admin_password !== "") {
