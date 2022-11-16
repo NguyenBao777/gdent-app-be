@@ -7,11 +7,11 @@ const operatorsAliases = {
 require("dotenv/config");
 
 const sequelize = new Sequelize(
-	process.env.DB_NAME || "gdent-app",
-	process.env.DB_USER || "root",
-	process.env.DB_PASSWORD || null,
+	process.env.DB_NAME || "bpc92kgfz0jacuegej03",
+	process.env.DB_USER || "unzuyt7gqtftgznq",
+	process.env.DB_PASSWORD || "wyTgT8Z9GyXM73Y1y065",
 	{
-		host: process.env.DB_HOST || "localhost",
+		host: process.env.DB_HOST || "bpc92kgfz0jacuegej03-mysql.services.clever-cloud.com",
 		dialect: "mysql",
 		operatorsAliases,
 	}
