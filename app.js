@@ -23,6 +23,9 @@ app.use((req, res, next) => {
 });
 // Routes middle
 const route = require("./routes/web");
+app.use("/", (req, res) => {
+	res.json({ message: "app run successfully" });
+});
 app.use("/", route);
 const port = process.env.PORT;
 app.listen(4000, () => console.log(`running on port ${port}`));
