@@ -13,9 +13,12 @@ const bodyParser = require("body-parser");
 app.use(express.json());
 app.use(bodyParser.json());
 app.use("/public", express.static(path.join(__dirname, "./public")));
+app.get("/", (req, res) => {
+	res.json({ message: "hello" });
+});
 // Routes middle
-const route = require("./routes/web");
+// const route = require("./routes/web");
 
-app.use("/", route);
+// app.use("/", route);
 const port = process.env.PORT;
 app.listen(4000, () => console.log(`running on port ${port}`));
