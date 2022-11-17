@@ -21,7 +21,6 @@ app.get("/", (req, res) => {
 });
 
 /******************************** Admin route **************************/
-const op = Sequelize.Op;
 const md5 = require("md5");
 
 // register
