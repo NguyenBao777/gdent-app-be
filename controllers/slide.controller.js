@@ -34,14 +34,14 @@ exports.addNew = async (req, res) => {
 };
 //get all
 exports.getAll = async (req, res) => {
-	const limit = req.body.limit;
+	const limit = Number(req.body.limit);
 	if (limit <= 0) {
 		try {
 			const data = await slideModel.tbl_slide.findAll();
 
 			return res.status(200).send({ success: true, message: data });
 		} catch (error) {
-			return res.status(422).send({ success: false, message: error });
+			return res.status(200).send({ success: false, message: error });
 		}
 	} else {
 		try {
@@ -52,7 +52,7 @@ exports.getAll = async (req, res) => {
 
 			return res.status(200).send({ success: true, message: rows });
 		} catch (error) {
-			return res.status(422).send({ success: false, message: error });
+			return res.status(200).send({ success: false, message: error });
 		}
 	}
 };

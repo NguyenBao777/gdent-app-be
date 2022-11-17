@@ -33,12 +33,12 @@ exports.addNew = async (req, res) => {
 };
 //get All
 exports.getAll = async (req, res) => {
-	const limit = req.params.limit;
+	const limit = Number(req.params.limit);
 	try {
 		if (limit > 0) {
 			const data = await brandModel.tbl_brand.findAll({
 				where: { brand_status: 1 },
-				limit: 4,
+				limit: limit,
 			});
 			return res.status(200).send({ success: true, message: data });
 		} else {

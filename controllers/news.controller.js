@@ -31,7 +31,7 @@ exports.addNew = async (req, res) => {
 };
 //get all
 exports.getAll = async (req, res) => {
-	const limit = req.params.limit;
+	const limit = Number(req.params.limit);
 
 	if (limit <= 0) {
 		try {
@@ -39,17 +39,17 @@ exports.getAll = async (req, res) => {
 
 			return res.status(200).send({ success: true, message: data });
 		} catch (error) {
-			return res.status(422).send({ success: false, message: error });
+			return res.status(200).send({ success: false, message: error });
 		}
 	} else {
 		try {
 			const { count, rows } = await newsModel.tbl_news.findAndCountAll({
-				limit: 4,
+				limit: limit,
 			});
 
 			return res.status(200).send({ success: true, message: rows });
 		} catch (error) {
-			return res.status(422).send({ success: false, message: error });
+			return res.status(200).send({ success: false, message: error });
 		}
 	}
 };
