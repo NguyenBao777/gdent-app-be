@@ -24,20 +24,20 @@ app.get("/", (req, res) => {
 const Sequelize = require("sequelize");
 const op = Sequelize.Op;
 // models
-const adminModel = require("./models/admin.model");
-const userModel = require("./models/user.model");
-const addressModel = require("./models/address.model");
-const tinhthanhphoModel = require("./models/tinhthanhpho.model");
-const xaphuongthitranModel = require("./models/xaphuongthitran.model");
-const quanhuyenModel = require("./models/quanhuyen.model");
-const brandModel = require("./models/brand.model");
-const categoryModel = require("./models/category.model");
-const contentModel = require("./models/content.model");
-const newsModel = require("./models/news.model");
-const orderModel = require("./models/order.model");
-const orderDetailModel = require("./models/order_detail.model");
-const productModel = require("./models/product.model");
-const slideModel = require("./models/slide.model");
+// const adminModel = require("./models/admin.model");
+// const userModel = require("./models/user.model");
+// const addressModel = require("./models/address.model");
+// const tinhthanhphoModel = require("./models/tinhthanhpho.model");
+// const xaphuongthitranModel = require("./models/xaphuongthitran.model");
+// const quanhuyenModel = require("./models/quanhuyen.model");
+// const brandModel = require("./models/brand.model");
+// const categoryModel = require("./models/category.model");
+// const contentModel = require("./models/content.model");
+// const newsModel = require("./models/news.model");
+// const orderModel = require("./models/order.model");
+// const orderDetailModel = require("./models/order_detail.model");
+// const productModel = require("./models/product.model");
+// const slideModel = require("./models/slide.model");
 const md5 = require("md5");
 const fs = require("fs");
 const adminUploadImg = require("./config/multer/adminMulter");
@@ -181,7 +181,6 @@ app.put("/edit", async (req, res) => {
 	}
 });
 /******************************** User route **************************/
-const userController = require("./controllers/user.controller");
 const userUploadImg = require("./config/multer/userMulter");
 // login
 app.get("/user/login/:user_username/:user_userpassword", async (req, res) => {
@@ -291,7 +290,7 @@ app.get("/user/checkusername/:username", async (req, res) => {
 	}
 });
 /******************************** Category route **************************/
-const categoryController = require("./controllers/category.controller");
+
 const categoryUploadImg = require("./config/multer/categoryMulter");
 // add new
 app.post("/category/addnew", categoryUploadImg, async (req, res) => {
@@ -391,7 +390,7 @@ app.delete("/category/delete/:filename/:id", async (req, res) => {
 	}
 });
 /******************************** Brand route **************************/
-const brandController = require("./controllers/brand.controller");
+
 const brandUploadImg = require("./config/multer/brandMulter");
 // add new
 app.post("/brand/addnew", brandUploadImg, async (req, res) => {
@@ -501,7 +500,7 @@ app.delete("/brand/delete/:filename/:id", async (req, res) => {
 	}
 });
 /******************************** Product route **************************/
-const productController = require("./controllers/product.controller");
+
 const productUploadImg = require("./config/multer/productMulter");
 // add new
 app.post("/product/addnew", productUploadImg, async (req, res) => {
@@ -728,10 +727,22 @@ app.get("/product/search/:str", async (req, res) => {
 	}
 });
 /******************************** Order route **************************/
-const orderController = require("./controllers/order.controller");
+
 /* ------------------------------------ tinhthanhpho ------------------------------------*/
 // get all
-app.get("/order/getall", orderController.getAll);
+app.get("/order/getall", async (req, res) => {
+	try {
+		const data = await orderModel.tbl_order.findAll({
+			order: [["id", "DESC"]],
+		});
+
+		return res.status(200).send({ success: true, message: data });
+	} catch (error) {
+		console.log(error);
+
+		return res.status(400).send({ success: true, message: error });
+	}
+});
 // get details
 app.get("/order/orderdetail/:code", async (req, res) => {
 	try {
@@ -960,7 +971,7 @@ app.delete("/order/delete/:code", async (req, res) => {
 	}
 });
 // /******************************** News route **************************/
-const newsController = require("./controllers/news.controller");
+
 const newsUploadImg = require("./config/multer/newsMulter");
 // add new
 app.post("/news/addnew", newsUploadImg, async (req, res) => {
@@ -1071,7 +1082,7 @@ app.delete("/news/delete/:filename/:id", async (req, res) => {
 	}
 });
 /******************************** Content route **************************/
-const contentController = require("./controllers/content.controller");
+
 // add new
 app.post("/content/addnew", async (req, res) => {
 	const newContent = contentModel.tbl_content.build({
@@ -1143,7 +1154,7 @@ app.delete("/content/delete/:id", async (req, res) => {
 	}
 });
 /******************************** Slide route **************************/
-const slideController = require("./controllers/slide.controller");
+
 const slideUploadImg = require("./config/multer/slideMulter");
 // add new
 app.post("/slide/addnew", slideUploadImg, async (req, res) => {
@@ -1259,7 +1270,7 @@ app.delete("/slide/delete/:filename/:id", async (req, res) => {
 	}
 });
 /******************************** Address route **************************/
-const addressController = require("./controllers/address.controller");
+
 /// get thanh pho
 app.get("/address/tinhthanhpho", async (req, res) => {
 	try {
