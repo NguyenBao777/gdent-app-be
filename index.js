@@ -174,7 +174,7 @@ app.get("/user/login/:user_username/:user_userpassword", async (req, res) => {
 		},
 	];
 
-	return res.status(200).send({ success: false, message: result });
+	return res.status(200).send({ success: true, message: result });
 });
 // register
 app.post("/user/registation", async (req, res) => {
