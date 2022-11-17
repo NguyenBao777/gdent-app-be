@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use("/public", express.static(path.join(__dirname, "./public")));
 app.get("/", (req, res) => {
-	return res.status(200).send({ message: "server gdent-app" });
+	res.status(200).send({ message: "server gdent-app" });
 });
 // Routes middle
 const route = require("./routes/web");
