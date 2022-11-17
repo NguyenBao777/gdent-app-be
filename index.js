@@ -2118,17 +2118,26 @@ app.get("/order/getall", async (req, res) => {
 });
 // get details
 app.get("/order/orderdetail/:code", async (req, res) => {
-	try {
-		const data = await orderDetailModel.tbl_order_detail.findAll({
-			where: { order_code: req.params.code },
-		});
+	const data = [
+		{
+			id: 13,
+			order_code: "1666060994680GD29",
+			product_id: 20,
+			product_name: "IMPLANT PRIMA",
+			product_image: "product_image_1665199366263.jpeg",
+			sale_qty: 3,
+		},
+		{
+			id: 14,
+			order_code: "1666060994680GD29",
+			product_id: 19,
+			product_name: "Arum 5x-300",
+			product_image: "product_image_1665199160425.jpeg",
+			sale_qty: 3,
+		},
+	];
 
-		return res.status(200).send({ success: true, message: data });
-	} catch (error) {
-		console.log(error);
-
-		return res.status(200).send({ success: true, message: error });
-	}
+	return res.status(200).send({ success: true, message: data });
 });
 // add new
 app.post("/order/addnew", async (req, res) => {
@@ -2258,18 +2267,28 @@ app.get("/order/getbyid/:id", async (req, res) => {
 });
 // get by code
 app.get("/order/getbycode/:code", async (req, res) => {
-	try {
-		const data = await orderModel.tbl_order.findOne({
-			where: {
-				order_code: req.params.code,
-			},
-		});
+	const data = {
+		id: 8,
+		order_code: "1666060994680GD29",
+		user_id: null,
+		order_name: "Bảo Bảo",
+		order_phone: "0342281231",
+		order_address: "58/1k",
+		tinhthanhpho_id: 24,
+		tinhthanhpho_name: "Tỉnh Bắc Giang",
+		quanhuyen_id: 221,
+		quanhuyen_name: "Huyện Yên Dũng",
+		xaphuongthitran_id: 7735,
+		xaphuongthitran_name: "Xã Đức Giang",
+		order_status: 0,
+		shipper_id: 104,
+		order_total: 2147483647,
+		payment_method: "COD",
+		created_at: "2022-10-18",
+		updated_at: "2022-10-18",
+	};
 
-		return res.status(200).send({ success: true, message: data });
-	} catch (error) {
-		console.log(error);
-		return res.status(200).send({ success: false, message: error });
-	}
+	return res.status(200).send({ success: true, message: data });
 });
 // assigned
 app.put("/order/assigned", async (req, res) => {
@@ -2435,15 +2454,16 @@ app.get("/news/getall/:limit", async (req, res) => {
 });
 // getOne
 app.get("/news/getone/:id", async (req, res) => {
-	const id = req.params.id;
-
-	try {
-		const data = await newsModel.tbl_news.findByPk(id);
-		return res.status(200).send({ success: true, message: data });
-	} catch (error) {
-		console.log(error);
-		return res.status(200).send({ success: false, message: error });
-	}
+	const data = {
+		id: 9,
+		news_name: "SỰ KIỆN GÌ SẼ DIỄN RA VÀO NGÀY 30/10/2019 TẠI BANGKOK",
+		news_desc:
+			"SỰ KIỆN GÌ SẼ DIỄN RA VÀO NGÀY 30/10/2019 TẠI BANGKOK\r\nCùng Chuyên gia Dr. IGOR RISTIC đến từ Serbia chia sẻ về những thủ thuật tạo phục hình với Composite, thủ thuật lấy dấu trên Crowns, Veneers và Implants được tổ chức bởi Trung Tâm DENTAL SIAM tại Bangkok.\r\n\r\nDr. IGOR RISTIC LÀ AI ?\r\n✔️ Tốt nghiệp tại Serbia vào năm 1996, Dr. Igor Ristic là người đã tìm ra những biên giới mới của các xu hướng mới nổi trong Nha khoa thẩm mỹ và Cấy ghép.\r\n✔️ Năm 1999, Dr. Ristic tốt nghiệp chuyên ngành Nha khoa về phục hình thẩm mỹ.\r\n✔️ Năm 2001 tại Belgrade, Serbia Dr. Ristic đã thành lập Trung tâm nha  thẩm mỹ và Cấy ghép( CDEI)\r\n✔️ Trong suốt sự nghiệp của mình, Dr. Ristic đã được trao học bổng từ Học viện Quốc tế về thẩm mỹ răng mặt tại New York.\r\n✔️ Trong năm 2018 Dr. Ristic là một giảng viên khách mời trong một module sau đại học về Thẩm mỹ và Cấy ghép Nha khoa tại Đại học BPP, London.\r\n✔️ Ông thành lập Hiệp hội Nha khoa thẩm mỹ Serbia và tổ chức các phòng khám tại Học viện hoa kỳ năm 2019.\r\n✔️ Dr. Ristic là thành viên hội đồng quản trị và là chủ tịch giáo dục của Hiệp hội Nha khoa thẩm mỹ Châu Âu( ESCD).\r\nHạn đăng ký: 20/10/2019.\r\nSố lượng Qúy Bác sĩ tham gia khóa học có hạn, để biết thêm thông tin xin vui lòng liên hệ hoặc inbox.",
+		news_image: "news_image_1665656330561.jpeg",
+		created_at: "2022-10-13",
+		updated_at: "2022-10-13",
+	};
+	return res.status(200).send({ success: true, message: data });
 });
 // update
 app.put("/news/update", async (req, res) => {
