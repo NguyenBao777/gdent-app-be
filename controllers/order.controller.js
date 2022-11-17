@@ -1,10 +1,10 @@
 const Sequelize = require("sequelize");
 const op = Sequelize.Op;
-const vercelCross = require("../config/crosshandler");
 const orderModel = require("../models/order.model");
 const orderDetailModel = require("../models/order_detail.model");
 const productModel = require("../models/product.model");
 const adminModel = require("../models/admin.model");
+const vercelCross = require("../config/crosshandler");
 
 // add new
 exports.addNew = async (req, res) => {
