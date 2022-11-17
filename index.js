@@ -13,11 +13,11 @@ const bodyParser = require("body-parser");
 app.use(express.json());
 app.use(bodyParser.json());
 app.use("/public", express.static(path.join(__dirname, "./public")));
-app.get("/", (req, res) => {
-	return res.status(200).send({ message: "server gdent-app" });
-});
+// app.get("/", (req, res) => {
+// 	return res.status(200).send({ message: "server gdent-app" });
+// });
 // Routes middle
-// const route = require("./routes/web");
+const route = require("./routes/web");
 
-// app.use("/", route);
+app.use("/", route);
 app.listen(4000, () => console.log(`running on port 4000`));
