@@ -1123,7 +1123,6 @@ app.get("/product/getall", async (req, res) => {
 	return res.status(200).send({ success: true, message: data });
 });
 // get limit
-const productModel = require("./models/product.model");
 app.get("/product/getlimit", async (req, res) => {
 	const data = [
 		{
