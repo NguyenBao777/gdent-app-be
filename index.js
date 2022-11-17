@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 const md5 = require("md5");
 
 // register
-app.post("/admin/register", adminUploadImg, async (req, res) => {
+app.post("/admin/register", async (req, res) => {
 	return res.status(200).send({ success: true });
 });
 // login
