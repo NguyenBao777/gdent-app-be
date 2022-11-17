@@ -5,7 +5,6 @@ const fs = require("fs");
 const vercelCross = require("../config/crosshandler");
 //add new
 exports.addNew = async (req, res) => {
-	vercelCross;
 	const body = req.body;
 	console.log(body);
 	const image_1 = req.files[0].filename;
@@ -49,7 +48,6 @@ exports.addNew = async (req, res) => {
 };
 // get all
 exports.getAll = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await productModel.tbl_product.findAll({ where: { product_status: 1 } });
 
@@ -60,7 +58,6 @@ exports.getAll = async (req, res) => {
 };
 // get limit
 exports.getLimit = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await productModel.tbl_product.findAll({
 			where: { product_status: 1 },
@@ -75,7 +72,6 @@ exports.getLimit = async (req, res) => {
 };
 // get one
 exports.getOne = async (req, res) => {
-	vercelCross;
 	const id = req.params.id;
 	try {
 		const data = await productModel.tbl_product.findByPk(id);
@@ -87,7 +83,6 @@ exports.getOne = async (req, res) => {
 };
 // update
 exports.update = async (req, res) => {
-	vercelCross;
 	const files = req?.files;
 
 	try {
@@ -175,7 +170,6 @@ exports.update = async (req, res) => {
 };
 // delete
 exports.delete = async (req, res) => {
-	vercelCross;
 	const oldImages = req.body;
 	const id = req.params.id;
 
@@ -194,7 +188,6 @@ exports.delete = async (req, res) => {
 };
 // getByCategory
 exports.getByCategory = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await productModel.tbl_product.findAll({
 			where: { category_id: req.params.id },
@@ -208,7 +201,6 @@ exports.getByCategory = async (req, res) => {
 };
 // search
 exports.search = async (req, res) => {
-	vercelCross;
 	const str = req.params.str;
 
 	try {
@@ -227,7 +219,6 @@ exports.search = async (req, res) => {
 };
 // getByAdmin
 exports.getAllAdmin = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await productModel.tbl_product.findAll();
 

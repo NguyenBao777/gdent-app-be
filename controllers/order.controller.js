@@ -53,7 +53,6 @@ exports.addNew = async (req, res) => {
 };
 // get all
 exports.getAll = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await orderModel.tbl_order.findAll({
 			order: [["id", "DESC"]],
@@ -68,7 +67,6 @@ exports.getAll = async (req, res) => {
 };
 // get details
 exports.getDetails = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await orderDetailModel.tbl_order_detail.findAll({
 			where: { order_code: req.params.code },
@@ -83,7 +81,6 @@ exports.getDetails = async (req, res) => {
 };
 // get quanhuyen
 exports.getQuanhuyen = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await quanhuyenModel.tbl_quanhuyen.findByPk(req.params.id);
 
@@ -96,7 +93,6 @@ exports.getQuanhuyen = async (req, res) => {
 };
 // get thi tran
 exports.getThitran = async (req, res) => {
-	vercelCross;
 	const id = req.params.id;
 	try {
 		const data = await xaphuongthitranModel.tbl_xaphuongthitran.findAll({
@@ -114,7 +110,6 @@ exports.getThitran = async (req, res) => {
 };
 // get thi tran by id
 exports.getThitranById = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await xaphuongthitranModel.tbl_xaphuongthitran.findByPk(req.params.id);
 
@@ -127,7 +122,6 @@ exports.getThitranById = async (req, res) => {
 };
 // get address
 exports.getAddress = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await addressModel.tbl_address.findAll({
 			where: {
@@ -143,7 +137,6 @@ exports.getAddress = async (req, res) => {
 };
 // get by shipper id
 exports.getByShipperId = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await orderModel.tbl_order.findAll({
 			where: {
@@ -160,7 +153,6 @@ exports.getByShipperId = async (req, res) => {
 };
 // get by code
 exports.getByCode = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await orderModel.tbl_order.findOne({
 			where: {
@@ -176,7 +168,6 @@ exports.getByCode = async (req, res) => {
 };
 // assigned
 exports.assigned = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await orderModel.tbl_order.findByPk(req.body.order_id);
 		data.update({
@@ -194,7 +185,6 @@ exports.assigned = async (req, res) => {
 };
 // handle order
 exports.handleOrder = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await orderModel.tbl_order.findByPk(req.body.order_id);
 		data.update({
@@ -227,7 +217,6 @@ exports.handleOrder = async (req, res) => {
 };
 // get total sale
 exports.getTotal = async (req, res) => {
-	vercelCross;
 	console.log(req.params.from_date);
 	try {
 		const data = await orderModel.tbl_order.findAll({
@@ -244,7 +233,6 @@ exports.getTotal = async (req, res) => {
 };
 // delete order
 exports.delete = async (req, res) => {
-	vercelCross;
 	try {
 		const deleteData = await orderModel.tbl_order.destroy({
 			where: { order_code: req.params.code },

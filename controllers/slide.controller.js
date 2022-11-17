@@ -4,7 +4,6 @@ const vercelCross = require("../config/crosshandler");
 
 //add new
 exports.addNew = async (req, res) => {
-	vercelCross;
 	const body = req.body;
 	const image = req.file.filename;
 
@@ -35,7 +34,6 @@ exports.addNew = async (req, res) => {
 };
 //get all
 exports.getAll = async (req, res) => {
-	vercelCross;
 	const limit = req.body.limit;
 	if (limit <= 0) {
 		try {
@@ -60,7 +58,6 @@ exports.getAll = async (req, res) => {
 };
 // getOne
 exports.getOne = async (req, res) => {
-	vercelCross;
 	const id = req.body.id;
 
 	try {
@@ -73,7 +70,6 @@ exports.getOne = async (req, res) => {
 };
 // update
 exports.update = async (req, res) => {
-	vercelCross;
 	const newImage = req?.file?.filename || null;
 	const id = req.body.slide_id;
 	console.log(id);
@@ -106,7 +102,6 @@ exports.update = async (req, res) => {
 };
 // delete
 exports.delete = async (req, res) => {
-	vercelCross;
 	const id = req.params.id;
 	const oldImage = req.params.filename;
 	try {

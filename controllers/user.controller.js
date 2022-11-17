@@ -5,7 +5,6 @@ const md5 = require("md5");
 const vercelCross = require("../config/crosshandler");
 // login
 exports.login = async (req, res) => {
-	vercelCross;
 	const username = req.params.user_username;
 	const password = md5(req.params.user_userpassword);
 
@@ -29,7 +28,6 @@ exports.login = async (req, res) => {
 };
 // register
 exports.addNew = async (req, res) => {
-	vercelCross;
 	const body = req.body;
 
 	if (!body) {
@@ -55,7 +53,6 @@ exports.addNew = async (req, res) => {
 };
 // update
 exports.update = async (req, res) => {
-	vercelCross;
 	const filename = req?.file?.filename || null;
 
 	try {
@@ -97,7 +94,6 @@ exports.update = async (req, res) => {
 };
 //check duplicate
 exports.checkDulicate = async (req, res) => {
-	vercelCross;
 	const username = req.params.username;
 
 	try {

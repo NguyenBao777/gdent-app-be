@@ -5,7 +5,6 @@ const addressModel = require("../models/address.model");
 const vercelCross = require("../config/crosshandler");
 // get thanh pho
 exports.getThanhpho = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await tinhthanhphoModel.tbl_tinhthanhpho.findAll();
 
@@ -18,7 +17,6 @@ exports.getThanhpho = async (req, res) => {
 };
 // get thanh pho by id
 exports.getThanhphoById = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await tinhthanhphoModel.tbl_tinhthanhpho.findByPk(req.params.id);
 
@@ -31,7 +29,6 @@ exports.getThanhphoById = async (req, res) => {
 };
 // get quan huyen
 exports.getQuanhuyen = async (req, res) => {
-	vercelCross;
 	const id = req.params.id;
 	try {
 		const data = await quanhuyenModel.tbl_quanhuyen.findAll({
@@ -49,7 +46,6 @@ exports.getQuanhuyen = async (req, res) => {
 };
 // get quan huyen by id
 exports.getQuanhuyenById = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await quanhuyenModel.tbl_quanhuyen.findByPk(req.params.id);
 
@@ -62,7 +58,6 @@ exports.getQuanhuyenById = async (req, res) => {
 };
 // get thi tran
 exports.getThitran = async (req, res) => {
-	vercelCross;
 	const id = req.params.id;
 	try {
 		const data = await xaphuongthitranModel.tbl_xaphuongthitran.findAll({
@@ -80,7 +75,6 @@ exports.getThitran = async (req, res) => {
 };
 // get thi tran by id
 exports.getThitranById = async (req, res) => {
-	vercelCross;
 	try {
 		const data = await xaphuongthitranModel.tbl_xaphuongthitran.findByPk(req.params.id);
 
@@ -93,7 +87,6 @@ exports.getThitranById = async (req, res) => {
 };
 // get address
 exports.getAddress = async (req, res) => {
-	vercelCross;
 	console.log(req.params.id);
 	try {
 		const data = await addressModel.tbl_address.findAll({
@@ -110,7 +103,6 @@ exports.getAddress = async (req, res) => {
 };
 // delete address
 exports.delete = async (req, res) => {
-	vercelCross;
 	try {
 		const deleteData = await addressModel.tbl_address.destroy({ where: { id: req.params.id } });
 		return res.status(200).send({ success: true, message: "Delete successfuly!" });

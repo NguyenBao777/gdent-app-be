@@ -1,9 +1,9 @@
 const brandModel = require("../models/brand.model");
 const fs = require("fs");
 const vercelCross = require("../config/crosshandler");
+
 // add new
 exports.addNew = async (req, res) => {
-	vercelCross;
 	const body = req.body;
 	const image = req.file.filename;
 	if (!image || !body) {
@@ -33,7 +33,6 @@ exports.addNew = async (req, res) => {
 };
 //get All
 exports.getAll = async (req, res) => {
-	vercelCross;
 	const limit = req.params.limit;
 	try {
 		if (limit > 0) {
@@ -54,7 +53,6 @@ exports.getAll = async (req, res) => {
 };
 //get one
 exports.getOne = async (req, res) => {
-	vercelCross;
 	const id = req.body.id;
 
 	try {
@@ -67,7 +65,6 @@ exports.getOne = async (req, res) => {
 };
 // update
 exports.update = async (req, res) => {
-	vercelCross;
 	const newImage = req?.file?.filename || null;
 	const id = req.body.brand_id;
 	console.log(id);
@@ -100,7 +97,6 @@ exports.update = async (req, res) => {
 };
 // delete
 exports.delete = async (req, res) => {
-	vercelCross;
 	const id = req.params.id;
 	const oldImage = req.params.filename;
 	try {
