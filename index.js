@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 	res.json({ message: "server gdent-app" });
 });
 // Routes middle
-const route = require("./routes/web");
+// const route = require("./routes/web");
 
-app.use("/", route);
+// app.use("/", route);
 app.listen(4000, () => console.log(`running on port 4000`));
