@@ -20,5 +20,4 @@ app.get("/", (req, res) => {
 // const route = require("./routes/web");
 
 // app.use("/", route);
-const port = process.env.PORT;
-app.listen(4000, () => console.log(`running on port ${port}`));
+app.listen(4000, () => console.log(`running on port 4000`));
